@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to Mithun Technologies BLR.</h1>
-<h1 align="center"> We have new Batch demo on 5th Aug 2021 at 12:00 IST......Very Good Training center for DevOps with AWS in Maratha Halli and also for Job Assitance Job Support also...Teaching Real Time scnerios and use cases...</h1>
+<h1 align="center"> We have new Batch demo on 6th Aug 2021 at 12:00 IST......Very Good Training center for DevOps with AWS in Maratha Halli and also for Job Assitance Job Support also...Teaching Real Time scnerios and use cases...</h1>
 <hr>
 <div style="text-align: center;">
 	<span>
