@@ -1,0 +1,43 @@
+node
+{
+ 
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])   
+
+def mavenHome = tool name: "maven3.6.3"    
+
+stage ('CheckoutCode')
+{
+git branch: 'development', credentialsId: '627df5db-f5b3-4b13-a270-14459ef9b3e4', url: 'https://github.com/sreenikhil/https-github.com-MithunTechnologiesDevOps-maven-web-application.git'
+}
+
+stage ('Build')
+{
+sh "${mavenHome}/bin/mvn clean package"     
+}
+
+stage ('ExecuteSonarQubeReport')
+{
+sh "${mavenHome}/bin/mvn sonar:sonar"     
+}
+
+stage ('UplodeArtifactIntoNexus')
+{
+sh "${mavenHome}/bin/mvn deploy"     
+}
+
+stage ('DeployAppIntoTomcatServer')
+{
+sshagent(['cd0489d4-2fa1-4760-bdfc-e71b227e5517']) 
+{
+sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.235.115.107:/opt/apache-tomcat-9.0.50/webapps/"
+}
+}
+
+stage ('SendEmailNotification')
+{
+mail bcc: 'sreenikhilreddym@gmail.com', body: '''build over...
+pipeline project
+''', cc: 'sreenikhilreddym@gmail.com', from: '', replyTo: '', subject: 'build over', to: 'sreenikhilreddym@gmail.com'
+}
+
+}
