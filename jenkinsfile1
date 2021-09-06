@@ -33,7 +33,6 @@ sshagent(['cd0489d4-2fa1-4760-bdfc-e71b227e5517'])
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.235.115.107:/opt/apache-tomcat-9.0.50/webapps/"
 }
 }
-*/
 
 stage ('SendEmailNotification')
 {
@@ -41,5 +40,6 @@ mail bcc: 'sreenikhilreddym@gmail.com', body: '''build over...
 pipeline project
 ''', cc: 'sreenikhilreddym@gmail.com', from: '', replyTo: '', subject: 'build over', to: 'sreenikhilreddym@gmail.com'
 }
+*/
 
 }
