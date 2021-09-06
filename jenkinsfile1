@@ -20,7 +20,8 @@ stage ('ExecuteSonarQubeReport')
 sh "${mavenHome}/bin/mvn sonar:sonar"     
 }
 
-//--> stage ('UplodeArtifactIntoNexus')
+/*
+stage ('UplodeArtifactIntoNexus')
 {
 sh "${mavenHome}/bin/mvn deploy"     
 }
@@ -32,6 +33,7 @@ sshagent(['cd0489d4-2fa1-4760-bdfc-e71b227e5517'])
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.235.115.107:/opt/apache-tomcat-9.0.50/webapps/"
 }
 }
+*/
 
 stage ('SendEmailNotification')
 {
