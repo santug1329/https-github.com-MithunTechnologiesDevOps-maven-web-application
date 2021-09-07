@@ -20,7 +20,6 @@ stage ('ExecuteSonarQubeReport')
 sh "${mavenHome}/bin/mvn sonar:sonar"     
 }
 
-/*
 stage ('UplodeArtifactIntoNexus')
 {
 sh "${mavenHome}/bin/mvn deploy"     
@@ -34,6 +33,7 @@ sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@65
 }
 }
 
+/*
 stage ('SendEmailNotification')
 {
 mail bcc: 'sreenikhilreddym@gmail.com', body: '''build over...
