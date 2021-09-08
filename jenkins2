@@ -5,11 +5,9 @@ agent{
 label 'node1'
 }
 
-/*
 tools{
 maven'maven3.6.3'
 }
-*/
 
 stages{
  
