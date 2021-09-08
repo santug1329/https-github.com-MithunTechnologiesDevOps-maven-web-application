@@ -1,0 +1,13 @@
+pipeline{
+
+any agent
+stages{
+ 
+ stage('checkoutcode'){
+ steps{
+ git branch: 'development', credentialsId: '627df5db-f5b3-4b13-a270-14459ef9b3e4', url: 'https://github.com/sreenikhil/https-github.com-MithunTechnologiesDevOps-maven-web-application.git'
+ 
+ } 
+ }
+}
+}
