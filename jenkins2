@@ -4,6 +4,13 @@ pipeline{
 agent{
 label 'node1'
 }
+
+/*
+tools{
+maven'maven3.6.3'
+}
+*/
+
 stages{
  
  stage('checkoutcode'){
@@ -11,6 +18,11 @@ stages{
   git branch: 'development', credentialsId: '627df5db-f5b3-4b13-a270-14459ef9b3e4', url: 'https://github.com/sreenikhil/https-github.com-MithunTechnologiesDevOps-maven-web-application.git'
  
  } 
+ }
+ stage('build'){
+  steps{
+  sh'sh mvn clean package'
+  }
  }
 }
 }
