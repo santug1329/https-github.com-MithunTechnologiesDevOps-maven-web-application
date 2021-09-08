@@ -1,4 +1,4 @@
-node
+node('node1')
 {
  
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])   
@@ -20,10 +20,12 @@ stage ('ExecuteSonarQubeReport')
 sh "${mavenHome}/bin/mvn sonar:sonar"     
 }
 
+/*
 stage ('UplodeArtifactIntoNexus')
 {
 sh "${mavenHome}/bin/mvn deploy"     
 }
+*/
 
 stage ('DeployAppIntoTomcatServer')
 {
