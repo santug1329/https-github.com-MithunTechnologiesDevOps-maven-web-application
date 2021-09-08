@@ -20,10 +20,12 @@ stage ('ExecuteSonarQubeReport')
 sh "${mavenHome}/bin/mvn sonar:sonar"     
 }
 
+/*
 stage ('UplodeArtifactIntoNexus')
 {
 sh "${mavenHome}/bin/mvn deploy"     
 }
+*/
 
 stage ('DeployAppIntoTomcatServer')
 {
